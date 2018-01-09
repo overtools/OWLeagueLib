@@ -12,7 +12,7 @@ namespace OWLeagueLib {
         // todo: locale, pagination
 
         /// <param name="uri">The API's URI</param>
-        public OWLApiDataProvider(string uri="https://api.overwatchleague.com/") {
+        public OWLAsyncApiDataProvider(string uri="https://api.overwatchleague.com/") {
             Client = new RestClient(uri);
         }
 
@@ -21,12 +21,10 @@ namespace OWLeagueLib {
         /// Wrapper around ExecuteAsync to use C# spec
         /// </summary>
         /// <typeparam name="T">The data type.</typeparam>
-        protected Task<IRestResponse<T>> ExecuteAsync<T>(IRestRequest request) {
-            TaskCompletionSource tcs = new TaskCompletionSource<IRestResponse<T>>();
+        protected Task<IRestResponse<T>> ExecuteAsync<T>(IRestRequest request) where T : new() {
+            TaskCompletionSource<IRestResponse<T>> tcs = new TaskCompletionSource<IRestResponse<T>>();
 
-            Client.ExecuteAsync<T>(request, response => {
-                tcs.SetResult(response)
-            });
+            Client.ExecuteAsync<T>(request, response => { tcs.SetResult(response); });
 
             return tcs.Task;
         }
