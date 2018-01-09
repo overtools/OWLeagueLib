@@ -74,6 +74,7 @@
     <Compile Include="Models\TeamStanding.cs" />
     <Compile Include="Models\VideosResponse.cs" />
     <Compile Include="OWLApiDataProvider.cs" />
+    <Compile Include="OWLAsyncApiDataProvider.cs" />
     <Compile Include="OWLDataProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
