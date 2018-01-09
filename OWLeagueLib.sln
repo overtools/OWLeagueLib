@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OWLeagueLib", "OWLeagueLib\OWLeagueLib.csproj", "{5938BD9D-7E40-4C5C-9AAF-338F3CDBA10E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeagueLibTest", "LeagueLibTest\LeagueLibTest.csproj", "{D6E3240C-924B-499C-870E-5D4E905B3A6F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5938BD9D-7E40-4C5C-9AAF-338F3CDBA10E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5938BD9D-7E40-4C5C-9AAF-338F3CDBA10E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5938BD9D-7E40-4C5C-9AAF-338F3CDBA10E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5938BD9D-7E40-4C5C-9AAF-338F3CDBA10E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6E3240C-924B-499C-870E-5D4E905B3A6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6E3240C-924B-499C-870E-5D4E905B3A6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6E3240C-924B-499C-870E-5D4E905B3A6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6E3240C-924B-499C-870E-5D4E905B3A6F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
