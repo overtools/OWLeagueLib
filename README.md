@@ -2,6 +2,7 @@
 
 
 ### License: MIT
+[![Build status](https://ci.appveyor.com/api/projects/status/cedog3yjp1m3r10o?svg=true)](https://ci.appveyor.com/project/ZingBallyhoo/owleaguelib)
 ----
 ### Providers:
 There are currently two data providers that you can switch out based on your needs. One for async, and one for synchronous code.
