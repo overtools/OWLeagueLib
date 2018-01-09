@@ -22,7 +22,21 @@ namespace LeagueLibTest {
             // OWLAsyncApiDataProvider asyncProvider = new OWLAsyncApiDataProvider();
             // ScheduleResponse scheduleResponseAsync = await asyncProvider.FetchSchedule();
             
-            await DemoGetMatch();
+            // await DemoGetMatch();
+            await DemoGetStage();
+        }
+
+        public static async Task DemoGetStage() {
+            // create provider
+            OWLAsyncApiDataProvider asyncProvider = new OWLAsyncApiDataProvider();
+            
+            // get schedule object
+            ScheduleResponse schedule = await asyncProvider.FetchSchedule();
+
+            // get next stage
+            Stage stage = schedule.GetNextStage();
+            
+            Console.Out.WriteLine($"The next stage of the current OWL season is: {stage.Name}");
         }
 
         public static async Task DemoGetMatch() {

@@ -11,7 +11,7 @@ OWLAsyncApiDataProvider
 ```
 ### Usage:
 #### Basic
-```
+```c#
 // Create the provider
 OWLApiDataProvider provider = new OWLApiDataProvider();
 
@@ -20,7 +20,7 @@ ScheduleResponse scheduleResponse = provider.FetchSchedule();
 ```
 
 #### Getting next match (using async)
-```
+```c#
 // create provider
 OWLAsyncApiDataProvider asyncProvider = new OWLAsyncApiDataProvider();
             
@@ -34,6 +34,20 @@ Stage stage = schedule.GetStage("Stage 1");
 StageMatch nextMatch = stage.GetNextMatch();
             
 Console.Out.WriteLine($"Next match is: {nextMatch.Team1.Name} vs {nextMatch.Team2.Name} at {nextMatch.StartDateTimeOffset()}");
+```
+
+#### Getting next stage (using async, you can combine this with "Getting next match" if you want)
+```c#
+// create provider
+OWLAsyncApiDataProvider asyncProvider = new OWLAsyncApiDataProvider();
+            
+// get schedule object
+ScheduleResponse schedule = await asyncProvider.FetchSchedule();
+
+// get next stage
+Stage stage = schedule.GetNextStage();
+            
+Console.Out.WriteLine($"The next stage of the current OWL season is: {stage.Name}");
 ```
 
 ### Requirements
