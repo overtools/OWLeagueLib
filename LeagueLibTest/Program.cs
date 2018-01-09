@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using OWLeagueLib;
 using OWLeagueLib.Models;
 
@@ -18,8 +19,26 @@ namespace LeagueLibTest {
             // StandingsResponse standingsResponse = provider.FetchStandings();
             // VideosResponse videosResponse = provider.FetchVideos();
             
+            // OWLAsyncApiDataProvider asyncProvider = new OWLAsyncApiDataProvider();
+            // ScheduleResponse scheduleResponseAsync = await asyncProvider.FetchSchedule();
+            
+            await DemoGetMatch();
+        }
+
+        public static async Task DemoGetMatch() {
+            // create provider
             OWLAsyncApiDataProvider asyncProvider = new OWLAsyncApiDataProvider();
-            ScheduleResponse scheduleResponseAsync = await asyncProvider.FetchSchedule();
+            
+            // get schedule object
+            ScheduleResponse schedule = await asyncProvider.FetchSchedule();
+
+            // get the stage using the name, index/id can also be used
+            Stage stage = schedule.GetStage("Stage 1");
+            
+            // get the next match in this stage
+            StageMatch nextMatch = stage.GetNextMatch();
+            
+            Console.Out.WriteLine($"Next match is: {nextMatch.Team1.Name} vs {nextMatch.Team2.Name} at {nextMatch.StartDateTimeOffset()}");
         }
     }
 }

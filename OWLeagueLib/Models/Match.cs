@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace OWLeagueLib.Models {
     public class BaseMatch {
@@ -8,6 +9,17 @@ namespace OWLeagueLib.Models {
         public Competitor Winner { get; set; }
         public List<Competitor> Competitors { get; set; }
         public List<Score> Scores { get; set; }
+
+        public Competitor Team1 => Competitors[0];
+        public Competitor Team2 => Competitors[1];
+
+        public DateTimeOffset StartDateTimeOffset() {
+            return DateTimeOffset.FromUnixTimeMilliseconds(GetStartDate());
+        }
+        
+        public DateTimeOffset EndDateTimeOffset() {
+            return DateTimeOffset.FromUnixTimeMilliseconds(GetEndDate());
+        }
 
         public virtual long GetStartDate() {
             return 0;

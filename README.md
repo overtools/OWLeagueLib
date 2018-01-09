@@ -9,13 +9,31 @@ There are currently two data providers that you can switch out based on your nee
 OWLApiDataProvider
 OWLAsyncApiDataProvider
 ```
-### Basic usage:
+### Usage:
+#### Basic
 ```
 // Create the provider
 OWLApiDataProvider provider = new OWLApiDataProvider();
 
 // Get the data that you need, in a nice deserialised object.
 ScheduleResponse scheduleResponse = provider.FetchSchedule();
+```
+
+#### Getting next match (using async)
+```
+// create provider
+OWLAsyncApiDataProvider asyncProvider = new OWLAsyncApiDataProvider();
+            
+// get schedule object
+ScheduleResponse schedule = await asyncProvider.FetchSchedule();
+
+// get the stage using the name, index/id can also be used
+Stage stage = schedule.GetStage("Stage 1");
+            
+// get the next match in this stage
+StageMatch nextMatch = stage.GetNextMatch();
+            
+Console.Out.WriteLine($"Next match is: {nextMatch.Team1.Name} vs {nextMatch.Team2.Name} at {nextMatch.StartDateTimeOffset()}");
 ```
 
 ### Requirements
