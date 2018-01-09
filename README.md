@@ -14,7 +14,6 @@ ScheduleResponse scheduleResponse = provider.FetchSchedule();
 
 ### Requirements
 * RestSharp
-* JsonApiNet
 
 
 ### Changelog
